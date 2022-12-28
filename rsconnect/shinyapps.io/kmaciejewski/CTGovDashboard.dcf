@@ -5,10 +5,10 @@ account: kmaciejewski
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7949457
-bundleId: 6677618
+bundleId: 6677626
 url: https://kmaciejewski.shinyapps.io/CTGovDashboard/
-when: 1672200617.30746
-lastSyncTime: 1672200617.30748
+when: 1672201122.28242
+lastSyncTime: 1672201122.28244
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: .Rbuildignore|DESCRIPTION|LICENSE|selectors.R
+ignoredFiles: .gitattributes|.Rbuildignore|.RData|DESCRIPTION|LICENSE|README.md
