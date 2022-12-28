@@ -1,6 +1,6 @@
 # CTGov Dashboard 
 
-Application to assist in ClinicalTrials.gov metrics compliance and reporting
+Application to assist administrators in ClinicalTrials.gov metrics compliance and reporting
 
 To use this dashboard first download the Record Information Download and Review History Download csv files from ClinicalTrials.gov PRS.
 
