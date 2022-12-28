@@ -1,0 +1,225 @@
+---
+title: "Yale Clinical Trials reporting"
+author: "Yale Center for Analytical Sciences"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+classoption: landscape
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{xcolor}
+  - \definecolor{ltgray}{HTML}{D3D3D3}
+params:
+  reg: NA
+  res: NA
+  data_prospective: NA
+  date_min: date_min
+  date_max: date_max
+  study_type: study_type
+  intervention_types: intervention_types
+  u_s_fda_regulated_device: u_s_fda_regulated_device
+  record_status: record_status
+  results_status: results_status
+  fdaaa_status: fdaaa_status
+  responsible_party: responsible_party
+  nih_grants: nih_grants
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, message = F)
+library(kableExtra)
+library(knitr)
+library(tinytex)
+#  - \AddToHook{cmd/section/before}{\clearpage}
+```
+
+```{r}
+reg <- params$reg
+res <- params$res
+data_prospective <- params$data_prospective
+date_min <- params$date_min
+date_max <- params$date_max
+study_type <- params$study_type
+#phase <- params$phase
+intervention_types <- params$intervention_types
+u_s_fda_regulated_device <- params$u_s_fda_regulated_device
+record_status <- params$record_status
+results_status <- params$results_status
+fdaaa_status <- params$fdaaa_status
+#sponsor <- params$sponsor
+responsible_party <- params$responsible_party
+nih_grants <- params$nih_grants
+```
+
+# Data selected
+
+```{r, eval = T}
+n <- max(length(study_type), length(intervention_types),
+         length(u_s_fda_regulated_device), length(record_status), length(results_status),
+         length(fdaaa_status), length(responsible_party), length(nih_grants))
+
+length(study_type) <- n                      
+#length(phase) <- n
+length(intervention_types) <- n                      
+length(u_s_fda_regulated_device) <- n
+length(record_status) <- n                      
+length(results_status) <- n
+length(fdaaa_status) <- n                      
+#length(sponsor) <- n
+length(responsible_party) <- n                      
+length(nih_grants) <- n
+
+selectors = cbind(study_type, intervention_types, u_s_fda_regulated_device, 
+                  record_status, results_status, fdaaa_status,
+                  responsible_party, nih_grants) %>% 
+  as.data.frame()
+
+n<-length(selectors)
+m <- n/2
+p <- m + 1
+
+selectors[,1:m] %>% 
+  #mutate_each(funs(replace(., . %in% c("missing","NA","N/A"), 'Missing'))) %>% 
+  distinct() %>% 
+  mutate_all(~replace(., is.na(.), '')) %>% 
+  rename_all(function(x) gsub("_", " ", x)) %>% 
+  rename_all(str_to_title) %>% 
+  kbl(., booktabs = T, linesep = "") %>% 
+  kable_styling(latex_options = c("striped", "hold_position"),
+                full_width = F,
+                font_size = 8.5)
+selectors[,p:n] %>% 
+  #mutate_each(funs(replace(., . %in% c("missing","NA","N/A"), 'Missing'))) %>% 
+  distinct() %>% 
+  mutate_all(~replace(., is.na(.), '')) %>% 
+  rename_all(function(x) gsub("_", " ", x)) %>% 
+  rename_all(str_to_title) %>% 
+  kbl(., booktabs = T, linesep = "") %>% 
+  kable_styling(latex_options = c("striped", "hold_position"),
+                full_width = F,
+                font_size = 8.5)
+```
+
+\newpage
+
+# Registration report between `r as.yearmon(date_min)` and `r as.yearmon(date_max)`
+
+<!-- , between `r as.yearmon(Sys.Date() %m-% months(12))` and `r as.yearmon(Sys.Date())` -->
+
+```{r, echo = F, eval=T}
+#reg$Summary[1] <- rowSums(reg, na.rm = TRUE)
+rownames(reg) <-c(
+  "Number of records",
+  "Average time (days)",
+  "Avg CT.gov response time (days) for first try",
+  "Average tries",
+  "% Success first try",
+  "N Success first try",
+  "Avg CT.gov response time (days)")
+
+reg %>% 
+  mutate_all(~replace(., is.na(.), '')) %>% 
+  t() %>% 
+  kbl(., booktabs = T, linesep = "") %>% 
+  kable_styling(latex_options = c("striped", "hold_position")) %>% 
+  column_spec(2:8, width = "6em")
+```
+
+\newpage
+
+# Results report, between `r as.yearmon(date_min)` and `r as.yearmon(date_max)`
+
+<!-- , between `r as.yearmon(Sys.Date() %m-% months(12))` and `r as.yearmon(Sys.Date())` -->
+
+```{r, echo = F, eval=T}
+rownames(res) <- c(
+  "Number of records submitted",
+  "Number of records published", # if initial_results = NA
+  "Average days to publish",
+  "Avg CT.gov response time \n (days) for first try",
+  "Average tries",
+  "% Success first try",
+  "N Success first try",
+  "Avg CT.gov response time (days)",
+  "Reported within 12mo",
+  "Avg days since \n primary completion date"
+)
+
+res %>% 
+  mutate_all(~replace(., is.na(.), '')) %>% 
+  t() %>% 
+  kbl(., booktabs = T, linesep = "") %>% 
+  kable_styling(latex_options = c("striped", "hold_position")) %>% 
+  column_spec(2:11, width = "5em")
+```
+
+\newpage
+
+# Prospective
+
+## Expected updates and results in next quarter,
+
+### between `r as.yearmon(Sys.Date())` and `r as.yearmon(Sys.Date() %m+% months(3))`
+
+```{r, eval = T}
+data_prospective %>%
+  group_by(`Record Type`, `Update Type`) %>% 
+  summarise(`Number of Records` = n()) %>% 
+  kbl(., booktabs = T, linesep = "")
+
+```
+
+```{r, eval = T}
+# cell styling
+# not act, pact, but is NIH, then check - NIH but not FDAAA >> check mark
+data_prospective$NIH <- ifelse(data_prospective$NIH == "NIH", 
+                                 cell_spec(data_prospective$NIH, color = "blue"), 
+                                 "")
+data_prospective$`Update Type` <- ifelse(str_detect(data_prospective$`Update Type`,"Results"), 
+                                         cell_spec(data_prospective$`Update Type`, color = "red"), 
+                                         data_prospective$`Update Type`)
+
+# escape "_" b/c latex doesn't like it
+data_prospective$`Protocol Id`  <- gsub("_", " ", data_prospective$`Protocol Id`) # space
+```
+
+
+Note: $\textcolor{blue}{\textbf{NIH}}$ signifies an NIH-defined clinical trial
+
+
+$\textcolor{red}{\textbf{All results}}$ or $\textcolor{red}{\textbf{Results}}$ expected are colored red, ${\textbf{Updates}}$ expected are not colored
+
+\newpage
+
+### Registration
+
+```{r, eval=T}
+data_prospective_r <- data_prospective %>% 
+  filter(`Record Type` == "Registration") %>% 
+  select(-c(`Record Type`, `Brief Title`, `Overall Status`:Problems)) 
+# special characters in title will cause compile issues
+
+kbl(data_prospective_r, booktabs = T, format = "latex",  
+    escape = F, longtable = T, linesep = "") %>% 
+  kable_styling(latex_options = c("striped", "repeat_header"),
+                full_width = F,
+                font_size = 8.5)
+```
+
+\newpage
+
+### Results
+
+```{r, eval=T}
+data_prospective %>% 
+  filter(`Record Type` == "Results") %>% 
+  select(-c(`Record Type`,`Brief Title`, `Overall Status`:Problems)) %>% 
+  knitr::kable(., format="latex", booktabs = T, escape = F, longtable = T, linesep = "") %>% 
+  kable_styling(latex_options = c("striped", "repeat_header"),
+                full_width = F,
+                font_size = 8.5) 
+```

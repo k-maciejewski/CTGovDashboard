@@ -1,0 +1,315 @@
+select_fdaaa_status,select_fdaaa_status_bin,select_intervention_types,select_nih_grants,select_nih_grants_binary,select_phase,select_record_status,select_responsible_party,select_responsible_party_bin,select_results_status,select_sponsor,select_sponsor_bin,select_study_type,select_u_s_fda_regulated_device,select_u_s_fda_regulated_device_bin
+pACT,Yes,Behavioral,NIMH,Yes,Early Phase 1,Approved,[Sponsor],Sponsor,Created,Yale University,Yale University,Interventional,Missing,
+Missing,No,Biological/Vaccine,NHLBI,Yes,N/A,In Progress,"Suchitra Krishnan-Sarin
+suchitra.krishnan-sarin@yale.edu
+[Principal Investigator]",PI,Posted,Sanjay Kulkarni,Other,Observational,No FDA regulated device,
+ACT,Yes,Combination Product,NIAAA,Yes,None,No Longer Public,"Marney A. White
+marney.white@yale.edu
+[Principal Investigator]",PI,Released,Jennifer Sherr,Other,,FDA regulated device,
+,,Device,Missing,No,Phase 0,PRS Review,"Kimberly Yonkers
+kimberly.yonkers@umassmemorial.org
+[Principal Investigator]",PI,Missing,Brett King,Other,,,
+,,Diagnostic Test,NIDA,Yes,Phase 1,Public,"Sanjay Kulkarni
+sanjay.kulkarni@yale.edu
+[Sponsor-Investigator]",PI,,Stephen M. Strittmatter,Other,,,
+,,Dietary Supplement,NIH,Yes,Phase 1/Phase 2,Released,"Mehmet Sofuoglu
+mehmet.sofuoglu@yale.edu
+[Principal Investigator]",PI,,Eda Cengiz,Other,,,
+,,Drug,ORWH,Yes,Phase 2,,"Karl Insogna
+karl.insogna@yale.edu
+[Principal Investigator]",PI,,Joseph Paul Eder,Other,,,
+,,Other,NIAMS,Yes,Phase 2/Phase 3,,"Morris D. Bell
+morris.bell@yale.edu
+[Principal Investigator]",PI,,Alessandro Santin,Other,,,
+,,Procedure/Surgery,NIDDK,Yes,Phase 3,,"Rachel D. Barnes
+rachel.barnes@yale.edu
+[Principal Investigator]",PI,,Thomas Prebet,Other,,,
+,,Radiation,NICHD,Yes,Phase 4,,"Sherry McKee
+sherry.mckee@yale.edu
+[Principal Investigator]",PI,,Loren Laine,Other,,,
+,,missing,NIA,Yes,Missing,,"Melissa Langhan
+melissa.langhan@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NHLBI; NIH,Yes,,,"Ismene Petrakis
+ismene.petrakis@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCCAM,Yes,,,"Jennifer Sherr
+jennifer.sherr@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,NINDS,Yes,,,"Ana-Claire Meyer
+ana-claire.meyer@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCI,Yes,,,"Harriet Kluger
+harriet.kluger@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIAID,Yes,,,"Stephen M. Strittmatter
+stephen.strittmatter@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIDA; ORWH,Yes,,,"Alan Lewis
+Alan.Lewis@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCI; NIH,Yes,,,"Robin Raju, DO
+robin.raju@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIDA; NIH,Yes,,,"R. Douglas Bruce, MD, MA
+robert.bruce@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIA; NCRR,Yes,,,"Brett King
+brett.king@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,NIMH; NCI,Yes,,,"Steven Bernstein
+Steven.Bernstein@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NINR,Yes,,,"Richard Ehrenkranz
+richard.ehrenkranz@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIDA; NIMH,Yes,,,"Jeff Geschwind
+jeff.geschwind@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NICHD; NIH,Yes,,,"Stephanie  O'Malley
+stephanie.omalley@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCMHD,Yes,,,"Heping Zhang
+heping.zhang@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCCAM; NIH,Yes,,,"Stefanie Toise
+SCFToise@gmail.com
+[Principal Investigator]",PI,,,,,,
+,,,NIAAA; NIDA,Yes,,,"Denis Sukhodolsky
+denis.sukhodolsky@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIEHS,Yes,,,"Dana M. Small
+dana.small@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NINDS; NIMH,Yes,,,"Mohini Ranganathan
+mohini.ranganathan@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIDDK; NIH,Yes,,,"Gustavo Angarita
+gustavo.angarita@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIAID; NIH,Yes,,,"Sonia Caprio
+Sonia.Caprio@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NHLBI; NCMHD,Yes,,,"Carla Stover
+carla.stover@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCCAM; NIDA,Yes,,,"Deepak C. D'Souza
+deepak.dsouza@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIA; NIH,Yes,,,NA,PI,,,,,,
+,,,FIC,Yes,,,"Robert Schonberger
+robert.schonberger@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NIDCD,Yes,,,"Jiansong Xu
+jiansong.xu@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,National Center for Advancing Translational Science (NCATS),Yes,,,"Robin Whittemore
+robin.whittemore@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,FIC; NIMH,Yes,,,"James Boyer
+james.boyer@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NCRR; NIH,Yes,,,"Christina Roberto
+christina.roberto@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,NICHD; NIDDK; NIH,Yes,,,"Cenk Tek
+cenk.tek@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Robert Malison
+robert.malison@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Alan E. Kazdin
+Alan.Kazdin@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Francine Foss
+francine.foss@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Erin Hofstatter
+Erin.hofstatter@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Robert Leeman
+Robert.Leeman@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Frederick Shic
+frederick.shic@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Lynn E. Fiellin
+lynn.sullivan@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Patrick D. Skosnik
+patrick.skosnik@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Stephen M. Strittmatter
+stephen.strittmatter@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,,,,,"Kelly  Cosgrove
+Kelly.Cosgrove@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Eda Cengiz
+eda.cengiz@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,,,,,"James C. McPartland
+james.mcpartland@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Jennifer Sherr
+jennifer.sherr@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Dena-Schulman-Green
+dena.schulman-green@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Godfrey Pearlson
+godfrey.pearlson@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Joseph Paul Eder
+joseph.eder@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,,,,,"Irina Esterlis
+irina.esterlis@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Joan Monin
+joan.monin@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Scott Gettinger, MD
+scott.gettinger@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Benjamin Kelmendi, MD
+ben.kelmendi@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Michael Hurwitz
+michael.hurwitz@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Eda Cengiz
+eda.cengiz@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"RAJITA SINHA
+rajita.sinha@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Sanjay Kulkarni
+sanjay.kulkarni@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Robert McNamara
+robert.mcnamara@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Anne Chiang
+anne.chiang@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Jeffrey Testani
+jeffrey.testani@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Alessandro Santin
+alessandro.santin@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,,,,,"James I. Daley
+james.i.daley@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Thomas Prebet
+thomas.prebet@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,,,,,"Ansel Hillmer
+ansel.hillmer@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Amer Zeidan
+amer.zeidan@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Eric Woodcock
+eric.woodcock@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Marc Potenza
+marc.potenza@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Asti Jackson
+asti.jackson@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Rajiv Radhakrishnan
+rajiv.radhakrishnan@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Stephanie Wemm
+stephanie.wemm@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Farinaz Seifi
+farinaz.seifi@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Krystal Pollitt
+krystal.pollitt@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Alan Anticevic
+alan.anticevic@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Frank D Buono, PHD
+frank.buono@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Miriam Treggiari
+miriam.treggiari@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Sherry Mansour
+sherry.mansour@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Geoffrey Chupp
+geoffrey.chupp@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Hyung Chun
+hyung.chun@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Barbara Burtness
+barbara.burtness@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Lingzhong Meng
+lingzhong.meng@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Arya Mani
+arya.mani@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Terril Verplaetse
+terril.verplaetse@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Antonio Omuro
+antonio.omuro@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Adam Mecca
+adam.mecca@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Jennifer Dwyer, MD, PhD
+jennifer.dwyer@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Jonathan Koff
+jon.koff@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Francesca Montanari
+francesca.montanari@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"David Fiellin
+David.Fiellin@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Marek Cezary Chawarski
+marek.chawarski@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Thomas Carpenter
+thomas.carpenter@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Erez Yoeli
+eyoeli@mit.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Loren Laine
+Loren.Laine@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Elizabeth Ralevski
+elizabeth.ralevski@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Richard Antaya
+richard.antaya@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Harry Aslanian
+harry.aslanian@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Loren Laine
+Loren.Laine@yale.edu
+[Sponsor-Investigator]",PI,,,,,,
+,,,,,,,"Nils Petersen
+nils.petersen@yale.edu
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Ben Popple
+popplepediatrics@gmail.com
+[Principal Investigator]",PI,,,,,,
+,,,,,,,"Gary Cline
+gary.cline@yale.edu
+[Principal Investigator]",PI,,,,,,
