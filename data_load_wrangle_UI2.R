@@ -335,16 +335,19 @@ dataServer <- function(id){
                      mutate(results_expected = as.Date(results_expected, origin='1970-01-01'),
                             all_results_expected = as.Date(all_results_expected, origin='1970-01-01'))
                    
-                   # join the binary filters #
+                   # join/create the binary filters #
                    final_2008_all <- left_join(final_2008_all, selectors[c(1:3),c(1:2)], 
                                                by = c("fdaaa_status" = "select_fdaaa_status"))
                    final_2008_all <- left_join(final_2008_all, selectors[,c(4:5)], 
                                                by = c("nih_grants" = "select_nih_grants"))
-                   final_2008_all <- left_join(final_2008_all, selectors[,c(11:12)], 
-                                               by = c("sponsor" = "select_sponsor"))
-                   final_2008_all <- left_join(final_2008_all, selectors[,c(8:9)], 
-                                               by = c("responsible_party" = "select_responsible_party"))
-                   
+                   final_2008_all <- final_2008_all %>% 
+                     mutate(select_responsible_party = responsible_party,
+                                            select_responsible_party_bin = 
+                                              ifelse(is.na(responsible_party), 
+                                                     "Missing",
+                                              ifelse(responsible_party == "[Sponsor]",
+                                                     "Sponsor", 
+                                                     "PI")))
                    })
                })
 }
