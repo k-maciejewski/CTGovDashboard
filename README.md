@@ -4,7 +4,11 @@ Application to assist administrators in ClinicalTrials.gov metrics compliance an
 
 To use this dashboard first download the Record Information Download and Review History Download csv files from ClinicalTrials.gov PRS.
 
-*(Sample data for non-PRS users coming soon)*
+*Sample data for non-PRS users*
+
+[Record info](https://github.com/k-maciejewski/CTGovDashboard/blob/main/Anon_record_info.csv)
+
+[Review history](https://github.com/k-maciejewski/CTGovDashboard/blob/main/Anon_review_history.csv)
 
 Downloadable reports:
 
@@ -12,7 +16,6 @@ Downloadable reports:
 
 This will include selected dates and data, as shown in the dashboard
 
-- Show expected updates and results in next quarter
+- Expected updates and results in next quarter
 
-The excel file will include record information and contacts
-
+The excel file will include record and contact information 
