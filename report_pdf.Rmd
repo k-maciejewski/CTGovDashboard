@@ -34,10 +34,9 @@ knitr::opts_chunk$set(echo = F, warning = F, message = F)
 library(kableExtra)
 library(knitr)
 library(tinytex)
-#  - \AddToHook{cmd/section/before}{\clearpage}
 ```
 
-```{r}
+```{r, load_from_app}
 reg <- params$reg
 res <- params$res
 data_prospective <- params$data_prospective
@@ -57,7 +56,7 @@ nih_grants <- params$nih_grants
 
 # Data selected
 
-```{r, eval = T}
+```{r, show_selected}
 n <- max(length(study_type), length(intervention_types),
          length(u_s_fda_regulated_device), length(record_status), length(results_status),
          length(fdaaa_status), length(responsible_party), length(nih_grants))
@@ -83,7 +82,6 @@ m <- n/2
 p <- m + 1
 
 selectors[,1:m] %>% 
-  #mutate_each(funs(replace(., . %in% c("missing","NA","N/A"), 'Missing'))) %>% 
   distinct() %>% 
   mutate_all(~replace(., is.na(.), '')) %>% 
   rename_all(function(x) gsub("_", " ", x)) %>% 
@@ -93,7 +91,6 @@ selectors[,1:m] %>%
                 full_width = F,
                 font_size = 8.5)
 selectors[,p:n] %>% 
-  #mutate_each(funs(replace(., . %in% c("missing","NA","N/A"), 'Missing'))) %>% 
   distinct() %>% 
   mutate_all(~replace(., is.na(.), '')) %>% 
   rename_all(function(x) gsub("_", " ", x)) %>% 
@@ -108,10 +105,7 @@ selectors[,p:n] %>%
 
 # Registration report between `r as.yearmon(date_min)` and `r as.yearmon(date_max)`
 
-<!-- , between `r as.yearmon(Sys.Date() %m-% months(12))` and `r as.yearmon(Sys.Date())` -->
-
-```{r, echo = F, eval=T}
-#reg$Summary[1] <- rowSums(reg, na.rm = TRUE)
+```{r, reg_report, echo = F}
 rownames(reg) <-c(
   "Number of records",
   "Average time (days)",
@@ -133,9 +127,7 @@ reg %>%
 
 # Results report, between `r as.yearmon(date_min)` and `r as.yearmon(date_max)`
 
-<!-- , between `r as.yearmon(Sys.Date() %m-% months(12))` and `r as.yearmon(Sys.Date())` -->
-
-```{r, echo = F, eval=T}
+```{r, res_report, echo = F}
 rownames(res) <- c(
   "Number of records submitted",
   "Number of records published", # if initial_results = NA
@@ -165,15 +157,14 @@ res %>%
 
 ### between `r as.yearmon(Sys.Date())` and `r as.yearmon(Sys.Date() %m+% months(3))`
 
-```{r, eval = T}
+```{r, prop_1}
 data_prospective %>%
   group_by(`Record Type`, `Update Type`) %>% 
   summarise(`Number of Records` = n()) %>% 
   kbl(., booktabs = T, linesep = "")
-
 ```
 
-```{r, eval = T}
+```{r, prop_NIH}
 # cell styling
 # not act, pact, but is NIH, then check - NIH but not FDAAA >> check mark
 data_prospective$NIH <- ifelse(data_prospective$NIH == "NIH", 
@@ -197,11 +188,11 @@ $\textcolor{red}{\textbf{All results}}$ or $\textcolor{red}{\textbf{Results}}$ e
 
 ### Registration
 
-```{r, eval=T}
+```{r, prop_reg}
 data_prospective_r <- data_prospective %>% 
   filter(`Record Type` == "Registration") %>% 
   select(-c(`Record Type`, `Brief Title`, `Overall Status`:Problems)) 
-# special characters in title will cause compile issues
+# special characters in title will cause compile issues - look into fix
 
 kbl(data_prospective_r, booktabs = T, format = "latex",  
     escape = F, longtable = T, linesep = "") %>% 
@@ -214,7 +205,7 @@ kbl(data_prospective_r, booktabs = T, format = "latex",
 
 ### Results
 
-```{r, eval=T}
+```{r, prop_res}
 data_prospective %>% 
   filter(`Record Type` == "Results") %>% 
   select(-c(`Record Type`,`Brief Title`, `Overall Status`:Problems)) %>% 

@@ -696,8 +696,6 @@ ui <- fluidPage(
         dplyr::select(-date_time_agg) %>%
         mutate_all( ~ replace(., is.nan(.), NA))
       
-      #transpose(table_res, keep.names = "col", make.names = "date_label()")
-      
       data.table::transpose(table_res,
                             make.names = date_label())
     })
@@ -730,7 +728,6 @@ ui <- fluidPage(
     
     #### REPORT ####
     output$report <- downloadHandler(
-      # For PDF output, change this to "report.pdf"
       filename = function() {
         paste("ctgov_prs_report_", Sys.Date(), ".pdf", sep = "")
       },
@@ -797,7 +794,8 @@ ui <- fluidPage(
           record_owner.2,
           ''
         )) %>%  # all emails contain '@'
-        # mutate(contact_phone_1 = ifelse(grepl('[0-9]', substr(record_owner.3, 1, 3)), record_owner.3, '')) %>% #first three should contain numbers ex: 203 (20
+        # mutate(contact_phone_1 = ifelse(grepl('[0-9]', substr(record_owner.3, 1, 3)), record_owner.3, '')) %>%
+        # first three should contain numbers ex: 203 (20
         select(record_owner, Record_Owner_Name, Record_Owner_email) %>%
         unique()
       

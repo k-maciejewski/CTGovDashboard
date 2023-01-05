@@ -12,7 +12,6 @@ dataUI <- function(id){
               accept = c(".csv")
               
     ),
-    #textOutput("data")
   )
 }
 
@@ -39,26 +38,16 @@ dataServer <- function(id){
                    #required
                    record_info_columns <- read.csv(here::here('record_info_columns.csv')) %>% 
                      unlist()
-                   # record_info_columns <- Yale_record_info %>%  clean_names %>% colnames()
-                   # write.csv(record_info_columns, file = 'record_info_columns.csv', row.names=FALSE)
                    #loaded
                    column_names_Info <- colnames(Record_Information_Download)
                    
                    feedbackWarning("record_information", !ext_Info == "csv", "Incorrect file type for Record Information Download")
                    feedbackWarning("record_information", !sum(record_info_columns %in% column_names_Info) == 50, "Missing necessary columns for Record Information Download; please check upload")
                    
-                   # shiny::validate(
-                   #   need(ext_Info == "csv", "Incorrect file type for Record Information Download"),
-                   #   need(sum(record_info_columns %in% column_names_Info) == 50, 
-                   #        "Missing necessary columns for Record Information Download")
-                   # )
-                   
                    ext_RH <- tools::file_ext(here::here(input$review_history$datapath))
                    #required
                    record_hist_columns <- read.csv(here::here('record_hist_columns.csv')) %>% 
                      unlist()
-                   # record_hist_columns <- Review_History %>%  clean_names %>% colnames()
-                   # write.csv(record_hist_columns, file = 'record_hist_columns.csv', row.names=FALSE)
                    #loaded
                    column_names_RH <- colnames(Review_History)
                    
@@ -66,12 +55,6 @@ dataServer <- function(id){
                    feedbackWarning("review_history", !(length(column_names_RH) == 6), 
                    "Missing necessary columns for Record History; please check upload")
                    
-                   
-                   # shiny::validate(
-                   #   need(ext_RH == "csv", "Incorrect file type for Record History"),
-                   #   need(sum(record_hist_columns %in% column_names_RH) == 6, 
-                   #        "Missing necessary columns for Record History")
-                   # )
                    #### initial manipulation data ####
                    Review_Record <-
                      left_join(
@@ -188,7 +171,7 @@ dataServer <- function(id){
                        )))) %>%
                      mutate(diff = ceiling(difftime(lead(date_time), date_time, units = "days"))) %>%
                      mutate(CT_gov_response = ifelse(tries == FALSE, NA, (diff))) %>%
-                     filter(CT_gov_response > 0) %>% # suspicious 0-days - need to check; resubmitted at same second of acceptance
+                     filter(CT_gov_response > 0) %>% 
                      mutate(CT_gov_avg_record_response = mean(CT_gov_response, na.rm = T)) %>%
                      ungroup()
                    
@@ -204,7 +187,7 @@ dataServer <- function(id){
                    reg_2008_try %>% select(protocol_id, clinical_trials_gov_id, diff)
                    
                    # join tries to dates
-                   # success if accept on first try
+                   # success if accept on "first" try (metric is for second - clarify name?)
                    reg_2008_all <- left_join(reg_2008_b, reg_2008_try) %>%
                      mutate(success = ifelse(N_tries <= 2, 1, 0)) %>%
                      # fill these NA's so they can apply to all in group
@@ -280,7 +263,7 @@ dataServer <- function(id){
                        )))) %>%
                      mutate(diff = ceiling(difftime(lead(date_time), date_time, units = "days"))) %>%
                      mutate(CT_gov_response = ifelse(tries == FALSE, NA, (diff))) %>%
-                     filter(CT_gov_response > 0) %>% # suspicious 0-days - need to check; resubmitted at same second of acceptance
+                     filter(CT_gov_response > 0) %>% 
                      mutate(CT_gov_avg_record_response = mean(CT_gov_response, na.rm = T)) %>%
                      ungroup()
                    
@@ -298,7 +281,7 @@ dataServer <- function(id){
                    # join tries to dates
                    # are results on time?
                    # time to publish past primary completion date
-                   results_2008_all <- left_join(results_2008_b, results_2008_try) %>% #, by = c("protocol_id", "clinical_trials_gov_id")) %>%
+                   results_2008_all <- left_join(results_2008_b, results_2008_try) %>% 
                      mutate(results_publish = ifelse(!is.na(initial_results), 1, 0)) %>% 
                      mutate(success = ifelse(N_tries <= 2, 1, 0)) %>%
                      mutate(ontime = ifelse(initial_results <= primary_completion_date, 1, 0)) %>%
