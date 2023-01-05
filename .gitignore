@@ -5,3 +5,4 @@
 rsconnect/
 *.Rproj
 helper_fn.R
+DESCRIPTION
