@@ -6,9 +6,9 @@ To use this dashboard first download the Record Information Download and Review 
 
 *Sample data for non-PRS users*
 
-[Record info](https://github.com/k-maciejewski/CTGovDashboard/blob/main/Anon_record_info.csv)
+[Record info](https://github.com/k-maciejewski/CTGovDashboard/blob/main/example_data_output/Anon_record_info.csv)
 
-[Review history](https://github.com/k-maciejewski/CTGovDashboard/blob/main/Anon_review_history.csv)
+[Review history](https://github.com/k-maciejewski/CTGovDashboard/blob/main/example_data_output/Anon_review_history.csv)
 
 Downloadable reports:
 
