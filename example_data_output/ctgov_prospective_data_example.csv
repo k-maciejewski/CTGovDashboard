@@ -1,0 +1,41 @@
+"NIH","Protocol Id","Clinical Trials Gov Id","Record Type","Brief Title","Overall Status","Record Owner Name","Record Owner Email","Central Contacts Name","Central Contacts Email","Central Contacts Phone","Problems","Update Type","Date"
+"NIH",1253,975,"Results","Title 229","Completed","ro_name_ABA","ro_name_ABA@email.com","cc_name_BCA","cc_name_BCA@email.com","555-555-5555","PRS Review Comments
+Entry Not Completed","All Results Expected",2023-03-21
+"",553,650,"Registration","Title 685","Recruiting","ro_name_BJE","ro_name_BJE@email.com","cc_name_CEI","cc_name_CEI@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"",556,698,"Registration","Title 817","Completed","ro_name_BGG","ro_name_BGG@email.com","cc_name_AFG","cc_name_AFG@email.com","(555) 555-5555",NA,"All Results Expected",2023-02-05
+"NIH",618,719,"Registration","Title 340","Active, not recruiting","ro_name_BJI","ro_name_BJI@email.com","cc_name_CFI","cc_name_CFI@email.com","",NA,"Update Expected",2023-01-23
+"",681,622,"Registration","Title 992","Completed","ro_name_ACA","ro_name_ACA@email.com","cc_name_BEB","cc_name_BEB@email.com","(555) 555-5555 Ext: 5555",NA,"Results Expected",2023-03-14
+"",681,622,"Registration","Title 992","Completed","ro_name_ACA","ro_name_ACA@email.com","cc_name_BEB","cc_name_BEB@email.com","(555) 555-5555 Ext: 5555",NA,"All Results Expected",2023-03-14
+"",706,1014,"Registration","Title 426","Recruiting","ro_name_AAJ","ro_name_AAJ@email.com","cc_name_BFF","cc_name_BFF@email.com","555-555-5555 Ext: 5555",NA,"Update Expected",2023-02-23
+"NIH",724,834,"Registration","Title 869","Completed","ro_name_AEE","ro_name_AEE@email.com","cc_name_BHG","cc_name_BHG@email.com","555-555-5555","Entry Not Completed
+Update Not Released","Results Expected",2023-01-19
+"NIH",724,834,"Registration","Title 869","Completed","ro_name_AEE","ro_name_AEE@email.com","cc_name_BHG","cc_name_BHG@email.com","555-555-5555","Entry Not Completed
+Update Not Released","All Results Expected",2023-01-19
+"NIH",776,933,"Registration","Title 690","Recruiting","ro_name_CFE","ro_name_CFE@email.com","cc_name_CGH","cc_name_CGH@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"",849,1044,"Registration","Title 582","Recruiting","ro_name_CHB","ro_name_CHB@email.com","cc_name_GJB","cc_name_GJB@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"",858,1033,"Registration","Title 176","Recruiting","ro_name_AGB","ro_name_AGB@email.com","cc_name_CAH","cc_name_CAH@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"",879,1018,"Registration","Title 482","Recruiting","ro_name_AD","ro_name_AD@email.com","cc_name_AI","cc_name_AI@email.com","555-555-5555",NA,"Update Expected",2023-02-23
+"",919,1042,"Registration","Title 909","Active, not recruiting","ro_name_BBB","ro_name_BBB@email.com","cc_name_FBI","cc_name_FBI@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"NIH",922,1172,"Registration","Title 764","Active, not recruiting","ro_name_BAG","ro_name_BAG@email.com","cc_name_CGF","cc_name_CGF@email.com","555-555-5555",NA,"Results Expected",2023-03-12
+"",937,1108,"Registration","Title 366","Recruiting","ro_name_AGI","ro_name_AGI@email.com","cc_name_CBE","cc_name_CBE@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"NIH",954,1159,"Registration","Title 210","Recruiting","ro_name_CHC","ro_name_CHC@email.com","cc_name_GAG","cc_name_GAG@email.com","555-555-5555",NA,"Update Expected",2023-03-26
+"",969,1160,"Registration","Title 1064","Recruiting","ro_name_CDD","ro_name_CDD@email.com","cc_name_CB","cc_name_CB@email.com","555-555-5555",NA,"Update Expected",2023-03-26
+"",982,1119,"Registration","Title 1037","Recruiting","ro_name_DDH","ro_name_DDH@email.com","cc_name_HCG","cc_name_HCG@email.com","(555) 555-5555",NA,"Update Expected",2023-01-23
+"",1000,1130,"Registration","Title 884","Recruiting","ro_name_CHD","ro_name_CHD@email.com",NA,NA,"",NA,"Update Expected",2023-02-23
+"",1002,1158,"Registration","Title 470","Completed","ro_name_ADH","ro_name_ADH@email.com","cc_name_BGH","cc_name_BGH@email.com","555-555-5555",NA,"Results Expected",2023-03-26
+"",1017,1156,"Registration","Title 1168","Recruiting","ro_name_CH","ro_name_CH@email.com","cc_name_EI","cc_name_EI@email.com","5555555555",NA,"Update Expected",2023-03-26
+"",1023,1166,"Registration","Title 1273","Terminated","ro_name_AHE","ro_name_AHE@email.com","cc_name_CCB","cc_name_CCB@email.com","(555) 555-5555",NA,"Results Expected",2023-02-23
+"",1023,1166,"Registration","Title 1273","Terminated","ro_name_AHE","ro_name_AHE@email.com","cc_name_CCB","cc_name_CCB@email.com","(555) 555-5555",NA,"All Results Expected",2023-02-23
+"NIH",1047,1243,"Registration","Title 897","Recruiting","ro_name_ABD","ro_name_ABD@email.com","cc_name_BCH","cc_name_BCH@email.com","555-555-5555",NA,"Update Expected",2023-03-26
+"",1057,1263,"Registration","Title 1017","Recruiting","ro_name_DDJ","ro_name_DDJ@email.com","cc_name_HBJ","cc_name_HBJ@email.com","(555) 555-5555",NA,"Update Expected",2023-02-23
+"",1062,1219,"Registration","Title 75","Recruiting","ro_name_CI","ro_name_CI@email.com","cc_name_HCE","cc_name_HCE@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"",1070,1229,"Registration","Title 1084","Recruiting","ro_name_BFE","ro_name_BFE@email.com","cc_name_FF","cc_name_FF@email.com","555-555-5555",NA,"Update Expected",2023-02-23
+"",1079,1204,"Registration","Title 926","Recruiting","ro_name_FH","ro_name_FH@email.com","cc_name_HFF","cc_name_HFF@email.com","555-555-5555",NA,"Update Expected",2023-01-23
+"",1086,1193,"Registration","Title 845","Recruiting","ro_name_CBE","ro_name_CBE@email.com","cc_name_BEH","cc_name_BEH@email.com","555-555-5555 Ext: 5555",NA,"Update Expected",2023-03-26
+"",1094,1224,"Registration","Title 969","Recruiting","ro_name_DDH","ro_name_DDH@email.com","cc_name_HCH","cc_name_HCH@email.com","555-555-5555",NA,"Update Expected",2023-02-23
+"",1099,1232,"Registration","Title 77","Recruiting","ro_name_AFC","ro_name_AFC@email.com","cc_name_CJB","cc_name_CJB@email.com","555 555 5555",NA,"Update Expected",2023-01-23
+"",1115,911,"Registration","Title 605","Completed","ro_name_CFB","ro_name_CFB@email.com","cc_name_FHA","cc_name_FHA@email.com","555-555-5555",NA,"Results Expected",2023-02-22
+"",1115,911,"Registration","Title 605","Completed","ro_name_CFB","ro_name_CFB@email.com","cc_name_FHA","cc_name_FHA@email.com","555-555-5555",NA,"All Results Expected",2023-02-22
+"NIH",1253,975,"Registration","Title 229","Completed","ro_name_ABA","ro_name_ABA@email.com","cc_name_BCA","cc_name_BCA@email.com","555-555-5555","PRS Review Comments
+Entry Not Completed","All Results Expected",2023-03-21
+"NIH",1276,803,"Registration","Title 1370","Active, not recruiting","ro_name_AJD","ro_name_AJD@email.com","cc_name_AHI","cc_name_AHI@email.com","+5 (555) 555-5555",NA,"Results Expected",2023-04-05
