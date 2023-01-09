@@ -6,3 +6,5 @@ rsconnect/
 *.Rproj
 helper_fn.R
 DESCRIPTION
+*.mov
+*.png
