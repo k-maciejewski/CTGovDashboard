@@ -880,8 +880,13 @@ ui <- fluidPage(
         )) %>%
         filter(update_flag == 1) %>%
         select(-c(update_flag)) %>%
-        ungroup() %>%
-        select(Check, everything())
+        select(Check, everything()) %>% 
+        group_by(., `Protocol Id`) %>% 
+        arrange(., desc(`Record Type`), `Update Type`) %>% 
+        slice(1) %>% 
+        ungroup()
+      # if they have results, show results
+      # prioritize "All results" over other two, "Results" over "Update"
       
       data_prospective <- rename(data_prospective, NIH = Check)
       
