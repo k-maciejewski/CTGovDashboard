@@ -2,6 +2,10 @@
 
 Application to assist administrators in ClinicalTrials.gov metrics compliance and reporting
 
+The dashboard can be previewed [here](https://kmaciejewski.shinyapps.io/CTGovDashboard/)
+
+The dashboard (all files in repo) can be downloaded and used locally (requires R, LaTeX), or can be loaded to a secure server.
+
 To use this dashboard first download the Record Information Download and Review History Download csv files from ClinicalTrials.gov PRS.
 
 *Sample data for non-PRS users*
