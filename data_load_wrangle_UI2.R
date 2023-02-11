@@ -191,6 +191,10 @@ dataServer <- function(id){
                    reg_2008_all <- left_join(reg_2008_b, reg_2008_try) %>%
                      mutate(success = ifelse(N_tries <= 2, 1, 0)) %>%
                      # fill these NA's so they can apply to all in group
+                     fill(tries, N_tries, 
+                          diff_release_pub, diff, CT_gov_response, CT_gov_avg_record_response,
+                          success,
+                          `first submission response time`,.direction = "downup") %>% 
                      ungroup()
                    
                    #### results only ####
@@ -297,7 +301,10 @@ dataServer <- function(id){
                      )) %>%
                      mutate(past_primary_completion = difftime(initial_results, primary_completion_date, units = "days")) %>% 
                      # fill these NA's so they can apply to all in group
-                     fill(N_tries, CT_gov_avg_record_response, `first submission response time`)  %>%
+                     fill(diff_release_pub, diff, CT_gov_response, CT_gov_avg_record_response,
+                          tries, N_tries, success, ontime, results_12_mo, past_primary_completion,
+                          `first submission response time`, 
+                          .direction = "downup") %>%
                      ungroup() 
                    
                    #### UNION FINAL DS ####
