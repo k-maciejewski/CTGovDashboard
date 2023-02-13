@@ -3,10 +3,14 @@
 dataUI <- function(id){
   tagList(
     useShinyFeedback(),
-    (fileInput(NS(id,"record_information"),
+    # radioButtons("radio", label = "Choose data to use", 
+    #              choices = c("User data" = "usr", 
+    #                          "Sample data" = "smp")
+    #              ),
+    fileInput(NS(id,"record_information"),
               label = "Record Information csv file",
               accept = c(".csv"), 
-    )),
+    ),
     fileInput(NS(id,"review_history"),
               label = "Review History csv file",
               accept = c(".csv")
@@ -14,6 +18,10 @@ dataUI <- function(id){
     ),
   )
 }
+
+# TO-DO
+# BUTTON: USE EXAMPLE DATASET
+# load data from example data (merged?)
 
 #### reactive create final ds ####
 
@@ -23,16 +31,28 @@ dataServer <- function(id){
                  
                  final_2008_all <- reactive({
                    
+                   #  input$review_history <- switch(input$radio,
+                   #                                usr = input$review_history,
+                   #                                smp = "example_data_output/Anon_review_history.csv",
+                   #                                NULL
+                   #                                )
+                   # 
+                   # input$record_information <- switch(input$radio,
+                   #                                usr = input$record_information,
+                   #                                smp = "example_data_output/Anon_record_info.csv",
+                   #                                NULL
+                   #                                )
+                   
                    req(input$record_information,
                        input$review_history)
 
-                   #### load data ####
-                   Review_History <- vroom::vroom(here::here(input$review_history$datapath)) %>%
-                     janitor::clean_names()
-                   
-                   Record_Information_Download <- vroom::vroom(here::here(input$record_information$datapath)) %>%
-                     janitor::clean_names() 
-                   
+                    #### load data ####
+                     Review_History <- vroom::vroom(here::here(input$review_history$datapath)) %>%
+                       janitor::clean_names()
+                     
+                     Record_Information_Download <- vroom::vroom(here::here(input$record_information$datapath)) %>%
+                       janitor::clean_names() 
+
                    #### Validate data ####
                    ext_Info <- tools::file_ext(here::here(input$record_information$datapath))
                    #required
