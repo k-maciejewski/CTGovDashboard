@@ -3,10 +3,6 @@
 dataUI <- function(id){
   tagList(
     useShinyFeedback(),
-    # radioButtons("radio", label = "Choose data to use", 
-    #              choices = c("User data" = "usr", 
-    #                          "Sample data" = "smp")
-    #              ),
     fileInput(NS(id,"record_information"),
               label = "Record Information csv file",
               accept = c(".csv"), 
@@ -31,27 +27,32 @@ dataServer <- function(id){
                  
                  final_2008_all <- reactive({
                    
-                   #  input$review_history <- switch(input$radio,
-                   #                                usr = input$review_history,
-                   #                                smp = "example_data_output/Anon_review_history.csv",
-                   #                                NULL
-                   #                                )
-                   # 
-                   # input$record_information <- switch(input$radio,
-                   #                                usr = input$record_information,
-                   #                                smp = "example_data_output/Anon_record_info.csv",
-                   #                                NULL
-                   #                                )
-                   
-                   req(input$record_information,
-                       input$review_history)
-
-                    #### load data ####
-                     Review_History <- vroom::vroom(here::here(input$review_history$datapath)) %>%
+                   Review_History <- if (is.null(input$review_history)) {
+                     vroom::vroom(here::here("example_data_output/Anon_review_history.csv")) %>%
                        janitor::clean_names()
+                   } else {
+                     vroom::vroom(here::here(input$review_history$datapath)) %>%
+                       janitor::clean_names()
+                   }
+                   
+                   Record_Information_Download <- if (is.null(input$record_information)) {
+                     vroom::vroom(here::here("example_data_output/Anon_record_info.csv")) %>%
+                       janitor::clean_names()
+                   } else {
+                     vroom::vroom(here::here(input$record_information$datapath)) %>%
+                       janitor::clean_names()
+                   }
+
+                   # req(input$record_information,
+                   #     input$review_history)
+                   
+                    #### load data ####
+                     # Review_History <- vroom::vroom(here::here(input$review_history$datapath)) %>%
+                     #   janitor::clean_names()
+                     # 
+                     # Record_Information_Download <- vroom::vroom(here::here(input$record_information$datapath)) %>%
+                     #   janitor::clean_names()
                      
-                     Record_Information_Download <- vroom::vroom(here::here(input$record_information$datapath)) %>%
-                       janitor::clean_names() 
 
                    #### Validate data ####
                    ext_Info <- tools::file_ext(here::here(input$record_information$datapath))

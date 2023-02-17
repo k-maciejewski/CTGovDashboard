@@ -111,6 +111,8 @@ ui <- fluidPage(
                     column(
                       4,
                       fluidRow(h3("Load data here!"), #load data
+                               h5("Note: sample data automatically loads"),
+                               h5("to replace with user data, upload csv files below"),
                                dataUI("load_data")
                                ),
                       fluidRow(textOutput("text")),
