@@ -8,12 +8,6 @@ The dashboard (all files in repo) can be downloaded and used locally (requires R
 
 To use this dashboard first download the Record Information Download and Review History Download csv files from ClinicalTrials.gov PRS.
 
-*Sample data for non-PRS users*
-
-[Record info](https://github.com/k-maciejewski/CTGovDashboard/blob/main/example_data_output/Anon_record_info.csv)
-
-[Review history](https://github.com/k-maciejewski/CTGovDashboard/blob/main/example_data_output/Anon_review_history.csv)
-
 **Downloadable reports:**
 
 1. Tables from registration and results
