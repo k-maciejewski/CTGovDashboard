@@ -15,10 +15,6 @@ dataUI <- function(id){
   )
 }
 
-# TO-DO
-# BUTTON: USE EXAMPLE DATASET
-# load data from example data (merged?)
-
 #### reactive create final ds ####
 
 dataServer <- function(id){        

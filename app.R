@@ -52,8 +52,8 @@ dateRangeInput2 <-
       inputId,
       label,
       format = "mm/yyyy",
-      start = Sys.Date() - years(1),
-      end = Sys.Date(),
+      start = "2020-12-31",
+      end = "2021-12-31",
       separator = " - ",
       min = "2008-01-01",
       max = Sys.Date(),
@@ -76,7 +76,6 @@ dateRangeInput2 <-
 ui <- fluidPage(
   useShinyFeedback(),
   theme = shinytheme("cosmo"),
-  #shinyFeedback::useShinyFeedback(),
   add_busy_bar(color = "orange", centered = T),
   # for the tour
   useConductor(),
@@ -111,7 +110,7 @@ ui <- fluidPage(
                     column(
                       4,
                       fluidRow(h3("Load data here!"), #load data
-                               h5("Note: sample data automatically loads"),
+                               h5(strong("Note: sample data automatically loads")),
                                h5("to replace with user data, upload csv files below"),
                                dataUI("load_data")
                                ),
@@ -192,7 +191,7 @@ ui <- fluidPage(
             ))),
             fluidRow(
               column(6, wellPanel(
-              h4("Percent success on first try"),
+              h4("Percent success within two tries"),
               plotlyOutput("plot3")
             )),
             column(6, wellPanel(
@@ -217,7 +216,7 @@ ui <- fluidPage(
             ))),
             fluidRow(
               column(6, wellPanel(
-              h4("Percent success on first try"),
+              h4("Percent success on within two tries"),
               plotlyOutput("plot7")
             )),
             column(6, wellPanel(
@@ -614,7 +613,7 @@ ui <- fluidPage(
     output$plot3 <- renderPlotly({
       plotlyfn(data_reactive_registration_filter(),
                success_pct_agg,
-               ylabel = "Percent success on first try")
+               ylabel = "Percent success on within two tries")
     })
     
     output$plot4 <-  renderPlotly({
@@ -640,8 +639,8 @@ ui <- fluidPage(
           "Average time (days)",
           "Avg CT.gov response time (days) for first try",
           "Average tries",
-          "% Success first try",
-          "N Success first try",
+          "% Success within two tries",
+          "N Success within two tries",
           "Avg CT.gov response time (days)"
         ),
         extensions = "FixedColumns",
@@ -671,7 +670,7 @@ ui <- fluidPage(
     output$plot7 <- renderPlotly({
       plotlyfn(data_reactive_results(),
                success_pct_agg,
-               ylabel = "Percent success on first try")
+               ylabel = "Percent success on within two tries")
     })
     
     output$plot8 <- renderPlotly({
@@ -712,8 +711,8 @@ ui <- fluidPage(
           "Average days to publish",
           "Avg CT.gov response time (days) for first try",
           "Average tries",
-          "% Success first try",
-          "N Success first try",
+          "% Success within two tries",
+          "N Success within two tries",
           "Avg CT.gov response time (days)",
           "Reported within 12mo",
           "Avg Days since primary completion date"
