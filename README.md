@@ -26,3 +26,6 @@ Example with sample data:
 Example with sample data:
 
 <img width="1211" alt="Screen Shot 2023-01-09 at 15 32 30" src="https://user-images.githubusercontent.com/33035476/211402609-5496f984-e064-47fc-8d94-e0cc0a1141ef.png">
+
+
+This dashboard is provided as-is without warranty of any kind
