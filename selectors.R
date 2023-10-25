@@ -1,11 +1,11 @@
 # selectors
 
 #### Define date aggregation ####
-which_date_agg <- c("month", "quarter", "halfyear")
+which_date_agg <- c("month") #, "quarter", "halfyear")
 
 selectorsUI <- function(id){
   selectInput(NS(id,'date_agg_choice'),
-              label = 'Choose date aggregation (month, quarter, half-year):',
+              label = 'Date aggregation (month)', #, quarter, half-year):',
               choices = which_date_agg,
               selected = "month")
 }
