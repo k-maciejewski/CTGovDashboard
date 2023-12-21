@@ -32,7 +32,7 @@ dataServer <- function(id){
                    }
                    
                    Record_Information_Download <- if (is.null(input$record_information)) {
-                     vroom::vroom(here::here("example_data_output/Anon_record_info.csv")) %>%
+                     vroom::vroom(here::here("example_data_output/Anon_record_info.csv"), guess_max = 1000) %>%
                        janitor::clean_names()
                    } else {
                      vroom::vroom(here::here(input$record_information$datapath)) %>%
@@ -206,7 +206,14 @@ dataServer <- function(id){
                    # join tries to dates
                    # success if accept on "first" try (metric is for second - clarify name?)
                    reg_2008_all <- left_join(reg_2008_b, reg_2008_try) %>%
-                     mutate(success = ifelse(N_tries <= 2, 1, 0)) %>%
+                     mutate(success = ifelse(N_tries <= 2, 1, 0)
+                            # ,
+                            # results_publish = NULL,
+                            # ontime = NULL,
+                            # results_12_mo = NULL,
+                            # past_primary_completion = NULL,
+                            # initial_results = NULL
+                            ) %>%
                      # fill these NA's so they can apply to all in group
                      fill(tries, N_tries, 
                           diff_release_pub, diff, CT_gov_response, CT_gov_avg_record_response,
@@ -303,7 +310,10 @@ dataServer <- function(id){
                    # are results on time?
                    # time to publish past primary completion date
                    results_2008_all <- left_join(results_2008_b, results_2008_try) %>% 
-                     mutate(results_publish = ifelse(!is.na(initial_results), 1, 0)) %>% 
+                     mutate(results_publish = ifelse(!is.na(initial_results), 1, 0)
+                            # ,
+                            # initial_registration = NULL
+                            ) %>% 
                      mutate(success = ifelse(N_tries <= 2, 1, 0)) %>%
                      mutate(ontime = ifelse(initial_results <= primary_completion_date, 1, 0)) %>%
                      mutate(results_12_mo = ifelse(
@@ -325,7 +335,7 @@ dataServer <- function(id){
                      ungroup() 
                    
                    #### UNION FINAL DS ####
-                   final_2008_all <- union_all(results_2008_all, reg_2008_all)
+                   final_2008_all <- bind_rows(results_2008_all, reg_2008_all)
                    
                    # # NIH funded, results dates empty, then expected = primary complete + 12, all exp = study complete + 12
                    # # if withdrawn then ...
