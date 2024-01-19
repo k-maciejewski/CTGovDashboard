@@ -32,7 +32,8 @@ conductor <- Conductor$
     el = "#sw-drop-downloads",
     title = "Download reports",
     text = "<strong>Pdf report:</strong>  Shows the registration and results plots, as generated using the side bar. The default shows monthly summary of 1 year. Information about prospective results or updates in next 3 months are also included <br> 
-    <strong>Prospective dataset:</strong>  This will return a csv file with information about studies that have updates or results expected within 3 months. The contact information for central contact and record owner, and variables in the problem list",
+    <strong>Prospective dataset:</strong>  This will return a csv file with information about studies that have updates or results expected within 3 or 6 months. The contact information for central contact and record owner, and variables in the problem list<br>
+    <strong>Reviewer dataset:</strong> data about the actions of reviewers",
   )$
   step(
     el = "#help",

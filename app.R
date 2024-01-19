@@ -136,6 +136,7 @@ ui <- fluidPage(
                  p(downloadLink("report", "Pdf report"), align = 'left'),
                  p(downloadLink("prospective", "3-mo Prospective dataset"), align = 'left'),
                  p(downloadLink("prospective6", "6-mo Prospective dataset"), align = 'left'),
+                 p(downloadLink("reviewer", "Reviewer dataset"), align = 'left'),
                ),
                actionButton('help',
                             'Help',
@@ -236,6 +237,11 @@ ui <- fluidPage(
           fluidRow(
             column(DTOutput("table2"), width = 12))
         ),
+        #### reviewer data ####
+        tabPanel("Reviewer Data",
+                 fluidRow(column(
+                   DTOutput("table4"), width = 12
+                 )))
       )
     )))
   ))
@@ -596,6 +602,26 @@ server <- function(input, output, session) {
       ))
   })
   
+  #### reviewer table ####
+  data_reviewer <- reactive({
+    final_2008_all() %>%
+      filter(!str_starts(user_reviewer, "QA")) %>%
+      select(
+        protocol_id,
+        clinical_trials_gov_id,
+        record_type,
+        event,
+        user_reviewer,
+        date_time,
+        brief_title,
+        initial_release,
+        initial_results_release,
+        verification_date
+      ) %>%
+      mutate_if(is.POSIXct, as_date)
+    
+  })
+  
   #### registration plots and table ####
   
   #### REGistration plots ####
@@ -725,6 +751,33 @@ server <- function(input, output, session) {
         scrollX = TRUE,
         fixedColumns = list(leftColumns = 1)
       )
+    )
+  })
+  
+  #### reviewer table ####
+  output$table4 <- renderDT({
+    table4 <- data_reviewer() %>%
+      mutate_if(is.character, as.factor)
+    
+    DT::datatable(
+      table4,
+      rownames = "",
+      colnames = c(
+        "protocol id",
+        "clinical trials gov id",
+        "record type",
+        "event",
+        "user reviewer",
+        "date time",
+        "brief title",
+        "initial release",
+        "initial results release",
+        "verification date"
+      ),
+      filter = 'top',
+      extensions = c("FixedColumns", 'ColReorder'),
+      options = list(dom = 't',
+                     colReorder = TRUE)
     )
   })
   
@@ -970,7 +1023,15 @@ server <- function(input, output, session) {
       write.csv(data_prospective6(), file, row.names = F)
     }
   )
-  
+  #### REVIEWER info ####
+  output$reviewer <- downloadHandler(
+    filename = function() {
+      paste("ctgov_prs_reviewer_data_", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(data_reviewer(), file)
+    }
+  )
 }
 
 #### Run the application ####
