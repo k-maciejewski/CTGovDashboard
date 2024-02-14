@@ -90,7 +90,9 @@ ui <- fluidPage(
     ".sw-dropdown {
       position: relative;
       display: inline-block;
-    }"
+    }
+    
+    div img { max-height: 100%; max-width: 100%; }"
   )),
   headerPanel(title = "", windowTitle = "CTGov dashboard"),
   #### STAGE upload ####
@@ -104,7 +106,7 @@ ui <- fluidPage(
     ),
     fluidRow(column(8,
                     includeHTML(
-                      "introdashboard.Rhtml" #info
+                      "www/introdashboard.Rhtml" #info
                     ) 
     ),
     column(
@@ -137,6 +139,7 @@ ui <- fluidPage(
                  p(downloadLink("prospective", "3-mo Prospective dataset"), align = 'left'),
                  p(downloadLink("prospective6", "6-mo Prospective dataset"), align = 'left'),
                  p(downloadLink("reviewer", "Reviewer dataset"), align = 'left'),
+                 p(downloadLink("problems", "Problem list dataset"), align = 'left'),
                ),
                actionButton('help',
                             'Help',
@@ -241,7 +244,17 @@ ui <- fluidPage(
         tabPanel("Reviewer Data",
                  fluidRow(column(
                    DTOutput("table4"), width = 12
-                 )))
+                 ))),
+        #### problem data ####
+        tabPanel("Problem Data",
+                 fluidRow(column(
+                   DTOutput("table5"), width = 12
+                 ))),
+        #### all data ####
+        # tabPanel("All Data",
+        #          fluidRow(column(
+        #            DTOutput("table_all"), width = 12
+        #          )))
       )
     )))
   ))
@@ -622,6 +635,119 @@ server <- function(input, output, session) {
     
   })
   
+  #### problem table ####
+  data_problems <- reactive({
+      # parse contact info
+      # grab the contact column
+      contact_list <- final_2008_all() %>%
+        select(record_owner:collaborators, problems) %>%
+        select(-(last_updater))
+      
+      # separator is \r\n
+      # then try to shuffle into name, email, phone
+      record_owner <- transform(contact_list,
+                                lapply({
+                                  l <- list(record_owner)
+                                  
+                                  names(l) = c('record_owner')
+                                  l
+                                },
+                                function(x)
+                                  do.call(rbind, strsplit(x, "\n", fixed = TRUE))),
+                                stringsAsFactors = F) %>%
+        mutate(Record_Owner_Name = record_owner.1) %>% # first one will be name
+        mutate(Record_Owner_email = ifelse(
+          stringi::stri_detect_fixed(record_owner.2, "@"),
+          record_owner.2,
+          ''
+        )) %>%  # all emails contain '@'
+        # mutate(contact_phone_1 = ifelse(grepl('[0-9]', substr(record_owner.3, 1, 3)), record_owner.3, '')) %>%
+        # first three should contain numbers ex: 203 (20
+        select(record_owner, Record_Owner_Name, Record_Owner_email) %>%
+        unique()
+      
+      central_contacts <- transform(contact_list,
+                                    lapply({
+                                      l <- list(central_contacts)
+                                      
+                                      names(l) = c('central_contacts')
+                                      l
+                                    },
+                                    function(x)
+                                      do.call(rbind, strsplit(x, "\n", fixed = TRUE))),
+                                    stringsAsFactors = F) %>%
+        mutate(Central_Contacts_Name = central_contacts.1) %>% # first one will be name
+        mutate(Central_Contacts_email = ifelse(
+          stringi::stri_detect_fixed(central_contacts.2, "@"),
+          central_contacts.2,
+          ''
+        )) %>%  # all emails contain '@'
+        mutate(Central_Contacts_phone = ifelse(
+          grepl('[0-9]', substr(central_contacts.3, 1, 3)),
+          central_contacts.3,
+          ifelse(grepl(
+            '[0-9]', substr(central_contacts.2, 1, 3)
+          ), central_contacts.2, '')
+        )) %>% #first three should contain numbers ex: 203 (20
+        select(
+          central_contacts,
+          Central_Contacts_Name,
+          Central_Contacts_email,
+          Central_Contacts_phone
+        ) %>%
+        unique()
+      
+      final_2_contact1 <- left_join(final_2008_all(), record_owner)
+      final_2_contact2 <-
+        left_join(final_2_contact1, central_contacts)
+    })
+    
+    data_problems <- reactive({
+      data_problems <- contact_info() %>%
+        # keep those with problems
+        filter(!is.na(problems)) %>%
+        select(
+          protocol_id:record_type,
+          brief_title,
+          overall_status,
+          nih_grants,
+          fdaaa_status,
+          update_expected:all_results_expected,
+          Record_Owner_Name,
+          Record_Owner_email,
+          Central_Contacts_Name,
+          Central_Contacts_email,
+          Central_Contacts_phone,
+          problems
+        ) %>%
+        mutate(check = ifelse(nih_grants != "Missing" &
+                                fdaaa_status == "Missing", "NIH", "")) %>%
+        select(-c(nih_grants, fdaaa_status)) %>%
+        mutate_at(vars(update_expected:all_results_expected),
+                  ~ as.Date(as.POSIXct(.))) %>%
+        rename_all(function(x)
+          gsub("_", " ", x)) %>%
+        rename_all(str_to_title) %>%
+        pivot_longer(
+          cols = c(`Update Expected`:`All Results Expected`),
+          names_to = "Update Type",
+          values_to = "Date"
+        ) %>%
+        filter(!is.na(Date)) %>%
+        select(Check, everything()) %>% 
+        group_by(., `Protocol Id`) %>% 
+        arrange(., desc(`Record Type`), `Update Type`) %>% 
+        #slice(1) %>% 
+        ungroup() %>% 
+        unique() %>% 
+        rename(NIH = Check)
+  })
+  
+  #### all table ####
+  data_all <- reactive({
+    final_2008_all()
+  })
+  
   #### registration plots and table ####
   
   #### REGistration plots ####
@@ -774,6 +900,34 @@ server <- function(input, output, session) {
         "initial results release",
         "verification date"
       ),
+      filter = 'top',
+      extensions = c("FixedColumns", 'ColReorder'),
+      options = list(dom = 't',
+                     colReorder = TRUE)
+    )
+  })
+  
+  #### problem table ####
+  output$table5 <- renderDT({
+    table5 <- data_problems() 
+    
+    DT::datatable(
+      table5,
+      rownames = "",
+      filter = 'top',
+      extensions = c("FixedColumns", 'ColReorder'),
+      options = list(dom = 't',
+                     colReorder = TRUE)
+    )
+  })
+  
+  #### all table ####
+  output$table_all <- renderDT({
+    table_all <- data_all() 
+    
+    DT::datatable(
+      table_all,
+      rownames = "",
       filter = 'top',
       extensions = c("FixedColumns", 'ColReorder'),
       options = list(dom = 't',
@@ -1030,6 +1184,15 @@ server <- function(input, output, session) {
     },
     content = function(file) {
       write.csv(data_reviewer(), file)
+    }
+  )
+  #### Problem info ####
+  output$problems <- downloadHandler(
+    filename = function() {
+      paste("ctgov_prs_problem_data_", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(data_problems(), file)
     }
   )
 }

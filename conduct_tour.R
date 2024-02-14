@@ -32,8 +32,9 @@ conductor <- Conductor$
     el = "#sw-drop-downloads",
     title = "Download reports",
     text = "<strong>Pdf report:</strong>  Shows the registration and results plots, as generated using the side bar. The default shows monthly summary of 1 year. Information about prospective results or updates in next 3 months are also included <br> 
-    <strong>Prospective dataset:</strong>  This will return a csv file with information about studies that have updates or results expected within 3 or 6 months. The contact information for central contact and record owner, and variables in the problem list<br>
-    <strong>Reviewer dataset:</strong> data about the actions of reviewers",
+    <strong>Prospective dataset:</strong>  This will return a csv file with information about studies that have updates or results expected within 3 or 6 months. Includes the contact information for central contact and record owner, and variables in the problem list<br>
+    <strong>Reviewer dataset:</strong> a comprehensive dataset of reviewer actions taken on all your registered records in your PRS<br>
+    <strong>Problem list dataset:</strong> This will return a csv file with information about studies that have any problems listed. The contact information for central contact and record owner, are included",
   )$
   step(
     el = "#help",
@@ -56,7 +57,11 @@ conductor <- Conductor$
     <br> <br>
     Table format below. The dates, aggregation, and selection of data types (ex Interventional study only) can be controlled on the sidebar. 
     <br> <br>
-    <strong>Results:</strong> same as registration, with additional plots for number of results published within 12 months from end of study, and number of days past primary completion date until results were published",
+    <strong>Results:</strong> same as registration, with additional plots for number of results published within 12 months from end of study, and number of days past primary completion date until results were published
+    <br> <br>
+      <strong>Reviewer data:</strong> a comprehensive dataset of reviewer actions taken on all your registered records in your PRS
+    <br> <br>
+      <strong>Problem list dataset</strong>This will return a csv file with information about studies that have any problems listed. The contact information for central contact and record owner, are included",
     buttons = list(
       list(
         action = "back",

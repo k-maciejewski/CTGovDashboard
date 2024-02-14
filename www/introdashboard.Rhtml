@@ -1,23 +1,74 @@
 <script src="https://kit.fontawesome.com/2572d6fa3c.js" crossorigin="anonymous"></script>
-<h2 style="text-align: center;"><strong>Clinical Trials Reporting Dashboard</strong> </h1>
-<h4 style="text-align: center;">An interactive dashboard for investigating site reporting</h4>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 13.28px;
+}
+
+img {
+  width: 200
+}
+
+</style>
+</head>
+
+<h1 style="text-align: center;"><strong>Clinical Trials Reporting Dashboard</strong> </h1>
+
+<h2 style="text-align: center;">An interactive dashboard for investigating site reporting</h2>
 
 <hr />
 
-<h4 style="text-align: left;"><strong> How to use: </strong></h4>
+<h2 style="text-align: left;"><strong> How to use: </strong></h2>
 
 <p style="text-align: left;">
 To use this dashboard first <strong>download</strong> the Record Information Download and Review History Download csv files from <a href="https://register.clinicaltrials.gov/" target="_blank">ClinicalTrials.gov PRS</a>.<br><br>
 
-Under the "Records" dropdown tab select the following:
+
+  <div class="column">
+  
+  Under the "Records" dropdown tab select the following:
 <br> <br>
 <strong>Record Information Download</strong><br> ensure all fields are selected, and group selected is <em>[All]</em> <br><br>
 
 <strong>Review History Download</strong><br> ensure group selected is <em>[All]</em> <br><br>
 
-Next, <strong>upload</strong> the Record Information and Review History csv files; this is on the top left sidebar
 <br>
+</div>
 
+<div class="column">
+<img src="PRS_download.png">
+</div>
+
+Next, <strong>upload</strong> the Record Information and Review History csv files on the right of this page
 
 <h4 style="text-align: left;"><strong><span style= "color: red">Important: </span> after uploading, wait until the top loading bar dissapears and you see plots before interacting with dashboard functions</strong></h4>
 
@@ -26,9 +77,9 @@ Click the <span style= "color: green"><strong>"Application Tour"</strong></span>
 <hr />
 
 
-<h4 style="text-align: left;"><strong>Examine the records:</strong></h4>
+<h2 style="text-align: left;"><strong>Examine the records:</strong></h2>
 
-<h5 style="text-align: left;"><strong>Use the selectors on the left to:</strong></h4>
+<h3 style="text-align: left;"><strong>Use the selectors on the left to:</strong></h3>
 
 <ul>
   <li style="text-align: left;">Specify date range </li>
@@ -38,7 +89,7 @@ Click the <span style= "color: green"><strong>"Application Tour"</strong></span>
 
 <hr />
 
-<h4 style="text-align: left;"><strong>Download the reports:</strong></h4>
+<h2 style="text-align: left;"><strong>Download the reports:</strong></h2>
 
 <ul>
   <li style="text-align: left;">Save the tables from registration and results</li>
@@ -54,7 +105,7 @@ Click the <span style= "color: green"><strong>"Application Tour"</strong></span>
 
 <hr />
 
-<h4 style="text-align: left;"><strong>Known issues:</strong></h4>
+<h2 style="text-align: left;"><strong>Known issues:</strong></h2>
 
 <ul>
 Date aggregations not working as expected. We are investigating. Current aggregation set to month only.
