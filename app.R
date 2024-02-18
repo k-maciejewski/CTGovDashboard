@@ -740,7 +740,10 @@ server <- function(input, output, session) {
         #slice(1) %>% 
         ungroup() %>% 
         unique() %>% 
-        rename(NIH = Check)
+        rename(NIH = Check) %>% 
+        select(Problems, everything()) %>% 
+        select(-c(`Update Type`, Date)) %>% 
+        unique()
   })
   
   #### all table ####
